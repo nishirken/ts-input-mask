@@ -4,16 +4,14 @@
   "description": "TypeScript library used for masking inputs",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "test": "mocha -r ts-node/register test/**/*.spec.ts",
     "test:coverage": "nyc -r lcov -e .ts -x \\\"**/*.spec.ts\\\" mocha -r ts-node/register test/**/*.spec.ts && nyc report",
     "build": "tsc",
     "build:watch": "tsc --watch",
     "lint": "tslint --project \"./tsconfig.json\"",
-    "build-publish": "npm run build && npm publish"
+    "build-publish": "npm run build && npm publish",
+    "install": "npm run build"
   },
   "author": {
     "name": "German Arutyunov",
