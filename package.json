@@ -5,9 +5,9 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "mocha -r ts-node/register test/**/*.spec.ts",
-    "test:coverage": "nyc -r lcov -e .ts -x \\\"**/*.spec.ts\\\" mocha -r ts-node/register test/**/*.spec.ts && nyc report",
-    "build": "tsc",
+    "test": "TS_NODE_PROJECT=tsconfig.spec.json mocha -r ts-node/register test/**/*.spec.ts",
+    "test:coverage": "TS_NODE_PROJECT=tsconfig.spec.json nyc -r lcov -e .ts -x \\\"**/*.spec.ts\\\" mocha -r ts-node/register test/**/*.spec.ts && nyc report",
+    "build": "tsc -p ./tsconfig.json",
     "build:watch": "tsc --watch",
     "lint": "tslint --project \"./tsconfig.json\"",
     "build-publish": "npm run build && npm publish",
@@ -35,19 +35,17 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "@types/chai": "4.2.10",
-    "@types/mocha": "7.0.2",
-    "@types/node": "13.9.0",
-    "chai": "4.2.0",
-    "mocha": "7.1.0",
-    "mocha-classes": "0.1.2",
-    "nyc": "15.0.0",
-    "semantic-release": "^17.3.7",
-    "ts-node": "8.6.2",
-    "tslint": "6.0.0",
-    "typescript": "^4.7.4"
+    "ts-node": "^10.9.1",
+    "@types/chai": "4.3.5",
+    "@types/mocha": "10.0.1",
+    "chai": "4.3.7",
+    "mocha": "10.2.0",
+    "nyc": "15.1.0",
+    "semantic-release": "21.0.2",
+    "tslint": "6.0.0"
   },
   "dependencies": {
-    "@types/dom-inputevent": "1.0.5"
+    "typescript": "^4.7.4",
+    "check-peer-dependencies": "^4.2.0"
   }
 }
